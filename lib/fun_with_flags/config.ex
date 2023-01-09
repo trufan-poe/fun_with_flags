@@ -45,7 +45,7 @@ defmodule FunWithFlags.Config do
 
 
   def cache? do
-    Keyword.get(ets_cache_config(), :enabled)
+    true
   end
 
 
@@ -97,10 +97,7 @@ defmodule FunWithFlags.Config do
 
 
   defp persistence_config do
-    Keyword.merge(
-      @default_persistence_config,
-      Application.get_env(:fun_with_flags, :persistence, [])
-    )
+    @default_persistence_config
   end
 
   # Defaults to FunWithFlags.Store.Persistent.Redis
